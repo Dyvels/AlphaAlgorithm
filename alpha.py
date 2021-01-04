@@ -131,7 +131,6 @@ class AlphaAnalyzer(Cmd):
             self.resultStep8.append("(o,"+e+")")
 
     def step8Alpha(self):
-        self.resultStep8 = list()
         cache =  list(set(self.resultStep2causal).difference(self.blacklistXOR))
 
         for elem in cache:
@@ -175,6 +174,7 @@ class AlphaAnalyzer(Cmd):
         if args.f:
             self.input= args.f  # holds a object with all information for a research
             self.prepareData()
+            self.resultStep8 = list()
             print("loaded:", self.input)
             self.step1Alpha()
             print("Directly-follows: ", str(self.resultStep1))
